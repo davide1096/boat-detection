@@ -59,8 +59,6 @@ def main(video_path, model_name):
 
         out.write(final_img)
         frame_id += 1
-        if frame_id == 100:
-            break
 
     out.release()
     cap.release()
