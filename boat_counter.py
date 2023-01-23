@@ -50,7 +50,8 @@ def main(video_path, model_name):
         assignments = tracker.solve_assignment(boat_boxes, frame_id)
 
         final_img = frame
-        cv.putText(final_img, f"Boat counter: {track.boat_num-1}",
+        boat_counter = max([x[1].boat_num for x in assignments])
+        cv.putText(final_img, f"Boat counter: {boat_counter-1}",
                    (h+100, w-100), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         for obj, track in assignments:
             final_img = cv.rectangle(
