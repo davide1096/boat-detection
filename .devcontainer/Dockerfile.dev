@@ -1,0 +1,5 @@
+FROM python:3.9
+WORKDIR /app
+RUN apt update && apt install git && \
+    apt-get update && apt-get install ffmpeg libsm6 libxext6 -y && \
+    pip install --upgrade pip && pip install opencv-python numpy ultralytics

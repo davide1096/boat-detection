@@ -1,0 +1,10 @@
+FROM python:3.9
+WORKDIR /app
+COPY . .
+RUN apt update && apt install git && \
+    apt-get update && apt-get install ffmpeg libsm6 libxext6 -y && \
+    pip install --upgrade pip && pip install opencv-python numpy ultralytics gdown
+
+RUN gdown https://drive.google.com/uc?id=1RrnYUiGyUM4im5uZ19l9LOYquNdrTdZ2
+
+CMD python boat_counter.py
