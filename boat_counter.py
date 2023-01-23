@@ -49,9 +49,8 @@ def main(video_path, model_name):
             b[2]-b[0])*(b[3]-b[1]) <= (h*w)/5]
 
         assignments = tracker.solve_assignment(boat_boxes, frame_id)
-        final_img = frame
-        cv.putText(final_img, f"Boat counter: {tracker.boat_counter-1}",
-                   (h+100, w-200), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+        final_img = cv.putText(frame, f"Boat counter: {tracker.boat_counter-1}",
+                               (h+100, w-200), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         for obj, track in assignments:
             final_img = cv.rectangle(
                 final_img, (obj[0], obj[1]), (obj[2], obj[3]), track.color, 2)
