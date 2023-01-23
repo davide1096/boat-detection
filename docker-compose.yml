@@ -1,0 +1,8 @@
+services:
+  boat_counter:
+    build:
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./detection_results:/app/detection_results
+    container_name: boat_counter
+    command: python boat_counter.py
